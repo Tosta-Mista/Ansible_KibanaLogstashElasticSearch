@@ -30,5 +30,5 @@ Dependencies
 Setup
 -----
 Generate a htpasswd file (You can use an online tool if you don't have apache
-installed - [this one is known to work](http://www.htpasswdgenerator.net/)) and
+installed - [Htpasswd Generator](http://www.htpasswdgenerator.net/)) and
 put it in `roles/kibana/files/htpasswd`.
