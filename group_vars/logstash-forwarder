@@ -1,0 +1,5 @@
+# Set the user ansible will log in with
+user: root
+
+# ElasticSearch domain url
+logstash_domain: localhost:5043

@@ -1,0 +1,10 @@
+/roles/logstash/files/certs/logstash-forwarder.crt
+/roles/logstash/files/certs/logstash-forwarder.key
+/roles/logstash-forwarder/files/certs/logstash-forwarder.crt
+/roles/logstash-forwarder/files/certs/logstash-forwarder.key
+#/roles/kibana/files/htpasswd
+#/group_vars/logstash-forwarder
+#/group_vars/logstash
+#/group_vars/elastc_search
+#/group_vars/kibana
+#/group_vars/all

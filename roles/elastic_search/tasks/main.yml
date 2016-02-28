@@ -1,0 +1,27 @@
+---
+################################################
+## ElasticSearch Install
+################################################
+
+- name: Ensure python-pycurl is installed
+  apt: pkg=python-pycurl state=installed
+
+- name: Ensure elasticsearch apt signing key is installed
+  apt-key: url=https://packages.elastic.co/GPG-KEY-elasticsearch state=present
+
+- name: Ensure elasticsearch 2.0.0 repository is installed
+  apt_repository: repo="deb http://packages.elastic.co/elasticsearch/2.x/debian stable main" state=present update_cache=yes
+
+- name: Ensure elasticsearch is installed
+  apt: pkg={{item}} state=installed
+  with_items:
+    - openjdk-8-jre
+    - elasticsearch
+
+- name: Ensure elasticsearch config is in place
+  copy: src=elasticsearch.conf.j2 dest=/etc/elasticsearch/elasticsearch.yml
+  notify:
+    - restart elasticsearch
+
+- name: Configure Elasticsearch to automatically start during bootup
+  shell: update-rc.d elasticsearch defaults 95 10

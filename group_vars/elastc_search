@@ -1,0 +1,2 @@
+# Set the user ansible will log in with
+user: root

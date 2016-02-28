@@ -1,0 +1,3 @@
+---
+# import Logstash Playbook
+- include: PlayBooks/logstash.yml

@@ -1,0 +1,3 @@
+---
+# import Kibana Playbook
+- include: PlayBooks/kibana.yml

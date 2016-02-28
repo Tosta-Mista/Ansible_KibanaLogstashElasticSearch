@@ -1,0 +1,3 @@
+---
+# Import elasticsearch playbook
+- include: PlayBooks/elastic_search.yml
