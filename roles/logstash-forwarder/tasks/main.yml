@@ -38,6 +38,6 @@
   file: path=/etc/init.d/logstash-forwarder.init state=absent
 
 - name: Ensure logstash boot at startup
-  shell: update-rc.d logstash-forwarder defaults
+  service: name=logstash-forwarder state=started enabled=yes
   notify:
   - restart logstash-forwarder

@@ -24,4 +24,4 @@
     - restart elasticsearch
 
 - name: Configure Elasticsearch to automatically start during bootup
-  shell: update-rc.d elasticsearch defaults 95 10
+  service: name=elasticsearch state=started enabled=yes
