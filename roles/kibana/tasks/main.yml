@@ -19,21 +19,21 @@
   get_url: url={{kibana_url}} dest=/tmp/kibana.zip
 
 - name: Unzip kibana to /var/www
-  shell: unzip /tmp/kibana.zip kibana-master/src/* -d /var/www/
+  unarchive: src=/tmp/kibana.zip dest=/var/www/ copy=no
 
 - name: Rename the directory to /var/www/kibana
   shell: mv /var/www/kibana-master/src/* /var/www/kibana
 
 - name: Clean up old kibana directory
-  shell: rm -rf /var/www/kibana-master
+  file: path=/var/www/kibana-master state=absent
 
 - name: Ensure kibana's htpasswd file is in place
-  copy: src=htpasswd dest=/var/www/htpasswd mode=0644 owner=root group=root
+  copy: src=../roles/kibana/files/htpasswd dest=/var/www/.htpasswd mode=0644 owner=root group=root
 
 - name: Ensure default nginx site is not enabled
   file: state=link src=/etc/nginx/sites-available/kibana path=/etc/nginx/sites-enabled/kibana
 
 - name: Ensure kibana config is in place
-  template: src=config.js.j2 dest=/var/www/kibana/config.js mode=0644 owner=root group=root
+  template: src=../roles/kibana/templates/config.js.j2 dest=/var/www/kibana/config.js mode=0644 owner=root group=root
   notify:
     - restart nginx
