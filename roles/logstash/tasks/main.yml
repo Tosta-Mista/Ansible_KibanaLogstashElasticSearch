@@ -24,7 +24,7 @@
     - restart logstash
 
 - name: Ensure logstash config is in place
-  copy: src=logstash.conf dest/etc/logstash/conf.d/logstash.conf
+  copy: src=logstash.conf dest=/etc/logstash/conf.d/logstash.conf
   notify:
     - restart logstash
 
