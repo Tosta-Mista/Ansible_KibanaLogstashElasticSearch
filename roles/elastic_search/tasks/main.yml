@@ -19,7 +19,7 @@
     - elasticsearch
 
 - name: Ensure elasticsearch config is in place
-  copy: src=elasticsearch.conf.j2 dest=/etc/elasticsearch/elasticsearch.yml
+  copy: src=../roles/elastic_search/files/elasticsearch.conf.j2 dest=/etc/elasticsearch/elasticsearch.yml
   notify:
     - restart elasticsearch
 
