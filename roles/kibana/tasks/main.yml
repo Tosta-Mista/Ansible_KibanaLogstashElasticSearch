@@ -31,7 +31,13 @@
   copy: src=../roles/kibana/files/htpasswd dest=/var/www/.htpasswd mode=0644 owner=root group=root
 
 - name: Ensure default nginx site is not enabled
-  file: state=link src=/etc/nginx/sites-available/kibana path=/etc/nginx/sites-enabled/kibana
+  file: state=link src=/etc/nginx/sites-available/default path=/etc/nginx/sites-enabled/default
+
+- name: Ensure kibana nginx site is in place
+  copy: src=../roles/kibana/templates/nginx.conf.j2 dest=/etc/nginx/sites-available/kibana
+
+- name: Create a symlink to enable nginx vhost
+  file: src=/etc/nginx/sites-available/kibana dest=/etc/nginx/sites-enabled/kibana state=link owner=root group=root
 
 - name: Ensure kibana config is in place
   template: src=../roles/kibana/templates/config.js.j2 dest=/var/www/kibana/config.js mode=0644 owner=root group=root
