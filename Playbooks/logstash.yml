@@ -2,7 +2,5 @@
 # Playbook for Logstash application
 - hosts: logstash
   user: {{user}}
-  var_files:
-    - group_vars/logstash
   tasks:
   - include: ../roles/logstash/tasks/main.yml
