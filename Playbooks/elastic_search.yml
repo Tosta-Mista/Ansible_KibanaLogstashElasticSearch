@@ -1,0 +1,7 @@
+---
+- hosts: elastic_search
+  user: "{{user}}"
+  var_files:
+    - group_vars/elastic_search
+  tasks:
+  - include: ../roles/elastic_search/tasks/main.yml
