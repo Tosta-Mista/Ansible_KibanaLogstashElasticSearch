@@ -1,6 +1,6 @@
 ---
 # Playbook for Logstash application
 - hosts: logstash
-  user: {{user}}
+  user: "{{user}}"
   tasks:
   - include: ../roles/logstash/tasks/main.yml
