@@ -31,7 +31,7 @@
   copy: src=htpasswd dest=/var/www/htpasswd mode=0644 owner=root group=root
 
 - name: Ensure default nginx site is not enabled
-  file: state=link src=/etc/nginx/sites-available/kibana path/etc/nginx/sites-enabled/kibana
+  file: state=link src=/etc/nginx/sites-available/kibana path=/etc/nginx/sites-enabled/kibana
 
 - name: Ensure kibana config is in place
   template: src=config.js.j2 dest=/var/www/kibana/config.js mode=0644 owner=root group=root
