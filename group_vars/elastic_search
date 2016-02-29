@@ -1,2 +1,19 @@
 # Set the user ansible will log in with
 user: root
+
+# Set the node name :
+nodename: SysLogTest
+clustername: SysLogCluster
+
+# If you the server is a slave server pass this value to false.
+nodemaster: true
+
+# Index and replicas
+numbershards: 1
+numberreplica: 0
+
+# Network
+host_listening: 127.0.0.1
+
+# Data path
+dataPath: /var/lib/elasticsearch
