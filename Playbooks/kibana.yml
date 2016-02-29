@@ -1,6 +1,6 @@
 ---
 # Import Playbook for kibana web app
 - hosts: kibana
-  user: {{user}}
+  user: "{{user}}"
   tasks:
   - include: ../roles/kibana/tasks/main.yml
