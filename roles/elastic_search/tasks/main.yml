@@ -7,7 +7,7 @@
   apt: pkg=python-pycurl state=installed
 
 - name: Ensure elasticsearch apt signing key is installed
-  apt-key: url=https://packages.elastic.co/GPG-KEY-elasticsearch state=present
+  apt_key: url=https://packages.elastic.co/GPG-KEY-elasticsearch state=present
 
 - name: Ensure elasticsearch 2.0.0 repository is installed
   apt_repository: repo="deb http://packages.elastic.co/elasticsearch/2.x/debian stable main" state=present update_cache=yes
