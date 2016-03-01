@@ -2,5 +2,7 @@
 # PlayBooks for logtash-forward logs forwarder.
 - hosts: logstash-forwarder
   user: "{{user}}"
+  vars_files:
+    - vars/logstash-forwarder
   tasks:
   - include: ../roles/logstash-forwarder/tasks/main.yml

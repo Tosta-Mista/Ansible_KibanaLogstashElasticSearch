@@ -29,7 +29,7 @@
 # Cluster name identifies your cluster for auto-discovery. If you're running
 # multiple clusters on the same network, make sure you're using unique names.
 #
-cluster.name: {{clustername}}
+cluster.name: {{ clustername }}
 
 
 #################################### Node #####################################
@@ -37,14 +37,14 @@ cluster.name: {{clustername}}
 # Node names are generated dynamically on startup, so you're relieved
 # from configuring them manually. You can tie this node to a specific name:
 #
-node.name: "{{nodename}}"
+node.name: {{ nodename }}
 
 # Every node can be configured to allow or deny being eligible as the master,
 # and to allow or deny to store the data.
 #
 # Allow this node to be eligible as a master node (enabled by default):
 #
-node.master: {{nodemaster}}
+node.master: {{ nodemaster }}
 #
 # Allow this node to store data (enabled by default):
 #
@@ -70,7 +70,7 @@ node.master: {{nodemaster}}
 #
 # node.master: false
 # node.data: false
-data.path: {{dataPath}}
+# data.path: {{dataPath}}
 # Use the Cluster Health API [http://localhost:9200/_cluster/health], the
 # Node Info API [http://localhost:9200/_cluster/nodes] or GUI tools
 # such as <http://github.com/lukas-vlcek/bigdesk> and
@@ -105,12 +105,12 @@ data.path: {{dataPath}}
 #index.number_of_shards: 5
 
 # Set the number of replicas (additional copies) of an index (1 by default):
-index.number_of_replicas: 1
+#index.number_of_replicas: 1
 
 # Note, that for development on a local machine, with small indices, it usually
 # makes sense to "disable" the distributed features:
-index.number_of_shards: {{numbershards}}
-index.number_of_replicas: {{numberreplica}}
+index.number_of_shards: {{ numbershards }}
+index.number_of_replicas: {{ numberreplica }}
 
 # These settings directly affect the performance of index and search operations
 # in your cluster. Assuming you have enough machines to hold shards and
@@ -204,7 +204,7 @@ index.number_of_replicas: {{numberreplica}}
 # network.publish_host: 192.168.0.1
 
 # Set both 'bind_host' and 'publish_host':
-network.host: {{host_listening}}
+network.host: {{ host_listening }}
 
 # Set a custom port for the node to node communication (9300 by default):
 #

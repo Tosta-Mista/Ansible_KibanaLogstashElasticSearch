@@ -1,5 +1,9 @@
+---
 # Set the user ansible will log in with
 user: root
+
+# Set the location of the elastic search database
+es_address: http://localhost/es/
 
 # ElasticSearch domain url
 logstash_domain: localhost:5043
