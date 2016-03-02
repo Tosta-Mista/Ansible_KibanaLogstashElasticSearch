@@ -3,4 +3,4 @@
 - hosts: filebeat
   user: "{{user}}"
   tasks:
-  - include: ../roles/logstash-forwarder/tasks/main.yml
+  - include: ../roles/filebeat/tasks/main.yml
