@@ -1,0 +1,3 @@
+---
+# import logstash-forwarder playbook
+- include: Playbooks/filebeat.yml

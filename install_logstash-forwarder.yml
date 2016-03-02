@@ -1,3 +1,0 @@
----
-# import logstash-forwarder playbook
-- include: Playbooks/logstash-forwarder.yml
