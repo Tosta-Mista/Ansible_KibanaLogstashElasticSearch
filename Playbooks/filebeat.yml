@@ -1,6 +1,6 @@
 ---
 # PlayBooks for logtash-forward logs forwarder.
-- hosts: logstash-forwarder
+- hosts: filebeat
   user: "{{user}}"
   tasks:
   - include: ../roles/logstash-forwarder/tasks/main.yml
