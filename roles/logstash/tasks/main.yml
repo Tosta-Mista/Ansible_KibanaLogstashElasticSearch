@@ -23,8 +23,14 @@
   notify:
     - restart logstash
 
-- name: Ensure logstash config is in place
-  copy: src=../roles/logstash/files/logstash.conf.j2 dest=/etc/logstash/conf.d/logstash.conf
+- name: Ensure logstash config files is in place
+  copy: src=../roles/logstash/files/{{item}} dest=/etc/logstash/conf.d/{{item}}
+  with_items:
+    - 01-lumberjack-input.conf
+    - 02-beats-input.conf
+    - 10-syslog.conf
+    - 11-nginx.conf
+    - 30-output.conf
   notify:
     - restart logstash
 
