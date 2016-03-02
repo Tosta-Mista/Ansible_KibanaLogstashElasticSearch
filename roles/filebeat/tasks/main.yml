@@ -16,15 +16,15 @@
   apt: pkg=filebeat state=installed update_cache=yes
 
 - name: Ensure filebeat config file is in place
-  copy: src=../roles/filebeat/templates/filebeat.yml dest=/etc/filebeat/filebeat.yml owner=root group=root
+  copy: src=../roles/filebeat/templates/filebeat.yml dest=/etc/filebeat/filebeat.yml owner=root group=root mode=0755
   notify:
     - restart filebeat
 
 - name: Ensure filebeat has its SSL certificates
-  copy: src=../roles/logstash-forwarder/files/certs/logstash-forwarder.crt dest=/etc/pki/tls/certs/logstash-forwarder.crt owner=root group=root mode=0755
+  copy: src=../roles/filebeat/files/certs/logstash-forwarder.crt dest=/etc/pki/tls/certs/logstash-forwarder.crt owner=root group=root mode=0755
 
 - name: Ensure filebeat has its SSL private key
-  copy: src=../roles/logstash-forwarder/files/certs/logstash-forwarder.key dest=/etc/pki/tls/private/logstash-forwarder.key owner=root group=root mode=0755
+  copy: src=../roles/filebeat/files/certs/logstash-forwarder.key dest=/etc/pki/tls/private/logstash-forwarder.key owner=root group=root mode=0755
 
 - name: Ensure filebeat boot at startup
   service: name=filebeat state=started enabled=yes
