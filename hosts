@@ -1,11 +1,11 @@
 [elastic_search]
-elastic_search0 ansible_ssh_host=192.168.1.80
+elastic_search0 ansible_ssh_host=192.168.1.20
 
 [logstash]
-logstash0 ansible_ssh_host=192.168.1.80
+logstash0 ansible_ssh_host=192.168.1.20
 
 [logstash-forwarder]
-logstash-forwarder0 ansible_ssh_host=192.168.1.80
+logstash-forwarder0 ansible_ssh_host=192.168.1.20
 
 [kibana]
-kibana0 ansible_ssh_host=192.168.1.80
+kibana0 ansible_ssh_host=192.168.1.20

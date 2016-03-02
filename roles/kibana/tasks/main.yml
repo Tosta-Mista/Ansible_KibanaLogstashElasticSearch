@@ -9,8 +9,8 @@
     - nginx
     - unzip
 
-- name: Ensure elasticsearch 2.0.0 repository is installed
-  apt_repository: repo="deb http://packages.elastic.co/elasticsearch/2.x/debian stable main" state=present update_cache=yes
+- name: Ensure Kibana 4.4.x repository is installed
+  apt_repository: repo="deb http://packages.elastic.co/kibana/4.4/debian stable main" state=present update_cache=yes
 
 - name: Install Kibana
   apt: pkg=kibana state=installed update_cache=yes
@@ -34,13 +34,13 @@
 #  file: path=/var/www/kibana-master state=absent
 
 - name: Ensure kibana's htpasswd file is in place
-  copy: src=../roles/kibana/files/htpasswd dest=/var/www/.htpasswd mode=0644 owner=root group=root
+  copy: src=../roles/kibana/files/htpasswd dest=/etc/nginx/htpasswd mode=0644 owner=root group=root
 
 - name: Ensure default nginx site is not enabled
   file: state=link src=/etc/nginx/sites-available/default path=/etc/nginx/sites-enabled/default
 
 - name: Ensure kibana nginx site is in place
-  copy: src=../roles/kibana/templates/nginx.conf.j2 dest=/etc/nginx/sites-available/kibana
+  copy: src=../roles/kibana/templates/nginx.conf.j2 dest=/opt/kibana/config/kibana.yml
 
 - name: Create a symlink to enable nginx vhost
   file: src=/etc/nginx/sites-available/kibana dest=/etc/nginx/sites-enabled/kibana state=link owner=root group=root
