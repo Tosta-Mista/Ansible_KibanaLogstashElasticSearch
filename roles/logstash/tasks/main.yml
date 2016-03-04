@@ -27,6 +27,12 @@
   notify:
     - restart logstash
 
+- name: Ensure Java 7 could open port under 1024
+  shell: setcap cap_net_bind_service=+epi /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
+
+- name: Ensure Java 1.7.0 could open port under 1024
+  shell: setcap cap_net_bind_service=+epi /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/bin/java
+
 - name: Ensure SSL certificates have the corect directories
   file: path=/etc/pki/tls/{{item}} owner=root group=root mode=0755 state=directory
   with_items:

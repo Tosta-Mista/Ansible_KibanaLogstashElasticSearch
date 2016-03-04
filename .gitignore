@@ -8,3 +8,4 @@
 #/group_vars/elastc_search
 #/group_vars/kibana
 #/group_vars/all
+/hosts
