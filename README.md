@@ -5,7 +5,6 @@ elasticsearch which allows you to monitor your data in realtime.
 
 Requirements
 ------------
-
  - Debian 8 Jessie
 
 Role Variables
@@ -16,11 +15,8 @@ Role Variables
 ### Set the domain name kibana will resolve to - this is for the nginx configuration
     kibana_domain: localhost
 
-### Set the url to retrieve kibana from
-    kibana_url: https://github.com/elasticsearch/kibana/archive/master.zip
-
 ### Set the location of the elastic search database
-    es_address: http://localhost/es/
+    es_address: http://<your_server_ip>
 
 Dependencies
 ------------
