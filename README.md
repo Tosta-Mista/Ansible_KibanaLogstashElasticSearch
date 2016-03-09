@@ -27,4 +27,4 @@ Setup
 -----
 Generate a htpasswd file (You can use an online tool if you don't have apache
 installed - [Htpasswd Generator](http://www.htpasswdgenerator.net/)) and
-put it in `roles/kibana/files/htpasswd`.
+put it in `roles/kibana/templates/htpasswd`.
