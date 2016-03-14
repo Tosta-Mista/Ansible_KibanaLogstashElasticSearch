@@ -1,0 +1,16 @@
+---
+################################################
+## Curator install
+################################################
+
+- name: Ensure python pip is installed.
+  apt: pkg=python-pip state=installed
+
+- name: Ensure elastic.co apt signing key is installed
+  apt_key:  url=https://packages.elastic.co/GPG-KEY-elasticsearch  state=present
+
+- name: Ensure curator repository is installed
+  apt_repository: repo="deb http://packages.elastic.co/curator/3/debian stable main" state=present update_cache=yes
+
+- name: Ensure curator is installed
+  apt: pkg=python-elasticsearch-curator state=present update_cache=yes
