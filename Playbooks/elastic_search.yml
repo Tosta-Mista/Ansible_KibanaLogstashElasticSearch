@@ -3,3 +3,4 @@
   user: "{{user}}"
   tasks:
   - include: ../roles/elastic_search/tasks/main.yml
+  - include: ../roles/elastic_search/tasks/curator.yml
