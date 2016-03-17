@@ -29,6 +29,12 @@
   notify:
     - restart nginx
 
+- name: Ensure Kibana boot at the startup
+  shell: update-rc.d kibana defaults
+  notify:
+    - restart nginx
+    - restart kibana
+
 - name: Ensure kibana config is in place
   template: src=../roles/kibana/templates/config.js.j2 dest=/opt/kibana/config/kibana.yml mode=0644 owner=root group=root
   notify:
